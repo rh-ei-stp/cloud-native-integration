@@ -60,11 +60,7 @@ Minimal Toil | CNCF | N/A
 Exploits values of cloud computing delivery model | CNCF | N/A
 Focus on build and deployment | Pivotal | N/A 
 location agnostic | Pivotal | N/A
-5 Pillars: * Microservices
-               * Modern Design
-               * Containers 
-               * Backing services 
-               * Automation | M$ | N/A
+5 Pillars: * Microservices * Modern Design * Containers * Backing services * Automation | M$ | N/A
 Deployed, updated, scaled, and restarted without impact to the system or end users. | VMWare | N/A 
 Microservices that are designed to integrate into any cloud environment | IBM | N/A
 Microservices deployed into containers | Red Hat | N/A
@@ -82,20 +78,20 @@ Elastic Infrastructure | [New Stack Article](https://thenewstack.io/10-key-attri
 
 ### Are Current Enterprise Integration Practices “Cloud Native”?
 * Cloud Native Characteristics 
-** Event and Complex event driven behaviour 
-** MicroService decomposition fits nicely into traditional SOA concepts 
-** Single Responsibility
-** Fault isolation 
-** Domain isolation  
-** Implies loose coupling between service endpoints 
-** API oriented 
-** Patterns provide meaningful idioms to connect loosely coupled services 
+  * Event and Complex event driven behaviour 
+  * MicroService decomposition fits nicely into traditional SOA concepts 
+  * Single Responsibility
+  * Fault isolation 
+  * Domain isolation  
+  * Implies loose coupling between service endpoints 
+  * API oriented 
+  * Patterns provide meaningful idioms to connect loosely coupled services 
 
 
 * Not Cloud Native
-** Legacy tooling does not exploit platform capabilities 
-** Dependence on other tools to scale to demand
-** Dependence on other tools to scale to zero 
-** No built in notion of location transparency for components that live outside of a runtime 
-** Appliances (message broker or esb) that decouple service endpoints are not cloud native
-** Capabilities largely dependent on underlying platform
+  * Legacy tooling does not exploit platform capabilities 
+  * Dependence on other tools to scale to demand
+  * Dependence on other tools to scale to zero 
+  * No built in notion of location transparency for components that live outside of a runtime 
+  * Appliances (message broker or esb) that decouple service endpoints are not cloud native
+  * Capabilities largely dependent on underlying platform
