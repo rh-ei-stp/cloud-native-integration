@@ -45,119 +45,57 @@ The flexibility of each microservice adds to the agility and continuous improvem
 “Cloud native is a term used to describe container-based environments. Cloud-native technologies are used to develop applications built with services packaged in containers, deployed as microservices and managed on elastic infrastructure through agile DevOps processes and continuous delivery workflows.”
 https://thenewstack.io/10-key-attributes-of-cloud-native-applications/
 
-### Cloud Native Characteristics
+## Cloud Native Characteristics
 
 Characteristic | Originator | Analysis
 -------------- | ---------- | --------
-Elasticity 
-David Gordon (https://www.redhat.com/en/about/videos/considerations-for-migrating-cloud-native-architectures)
+Elasticity | David Gordon [Gordo](https://www.redhat.com/en/about/videos/considerations-for-migrating-cloud-native-architectures) | N/A
+On Demand Scaling | David Gordon [Gordo](https://www.redhat.com/en/about/videos/considerations-for-migrating-cloud-native-architectures) | N/A
+Loosely coupled | CNCF | N/A 
+Resilient | CNCF | N/A
+Manageable | CNCF | N/A
+Observable | CNCF | N/A
+Frequent Change | CNCF | N/A
+Minimal Toil | CNCF | N/A
+Exploits values of cloud computing delivery model | CNCF | N/A
+Focus on build and deployment | Pivotal | N/A 
+location agnostic | Pivotal | N/A
+5 Pillars: * Microservices
+               * Modern Design
+               * Containers 
+               * Backing services 
+               * Automation | M$ | N/A
+Deployed, updated, scaled, and restarted without impact to the system or end users. | VMWare | N/A 
+Microservices that are designed to integrate into any cloud environment | IBM | N/A
+Microservices deployed into containers | Red Hat | N/A
+Communicate via API | Red Hat | N/A 
+Mesh network for message routing | Red Hat | N/A
+Elastic Infrastructure | [New Stack Article](https://thenewstack.io/10-key-attributes-of-cloud-native-applications/)|N/A
+
+## What is Cloud Native Integration?
+
+### Tenets of Enterprise Integration
+
+* Service Oriented Architecture  
+* MicroService Architecture 
+* Usage of Enterprise Integration Patterns: [EIP](https://en.wikipedia.org/wiki/Enterprise_Integration_Patterns)
+
+### Are Current Enterprise Integration Practices “Cloud Native”?
+* Cloud Native Characteristics 
+** Event and Complex event driven behaviour 
+** MicroService decomposition fits nicely into traditional SOA concepts 
+** Single Responsibility
+** Fault isolation 
+** Domain isolation  
+** Implies loose coupling between service endpoints 
+** API oriented 
+** Patterns provide meaningful idioms to connect loosely coupled services 
 
 
-On Demand Scaling 
-David Gordon https://www.redhat.com/en/about/videos/considerations-for-migrating-cloud-native-architectures
-
-
-Loosely coupled
-CNCF
-
-
-Resilient
-CNCF
-
-
-Manageable
-CNCF
-
-
-Observable
-CNCF
-
-
-Frequent Change
-CNCF
-
-
-Minimal Toil
-CNCF
-
-
-Exploits values of cloud computing delivery model
-CNCF
-
-
-Focus on build and deployment location agnostic 
-Pivotal
-
-
-5 Pillars:
-       -     Microservices
-Modern Design 
-Containers 
-Backing services 
-Automation 
-
-M$
-
-
-Deployed, updated, scaled, and restarted without impact to the system or end users.
-VMWare 
-
-
-Microservices that are designed to integrate into any cloud environment 
-IBM
-
-
-Microservices deployed into containers 		
-Red Hat
-
-
-Communicate via API 
-Red Hat
-
-
-Mesh network for message routing
-Red Hat
-
-
-Elastic Infrastructure 
-New Stack article:  https://thenewstack.io/10-key-attributes-of-cloud-native-applications/
-
-
-
-
-What is Cloud Native Integration?
-
-Tenets of Enterprise Integration
-
-Service Oriented Architecture  
-MicroService Architecture 
-Usage of Enterprise Integration Patterns: 
-https://en.wikipedia.org/wiki/Enterprise_Integration_Patterns
-
-Are Current Enterprise Integration Practices “Cloud Native”?
-Cloud Native Characteristics 
-Event and Complex event driven behaviour 
-MicroService decomposition fits nicely into traditional SOA concepts 
-Single Responsibility
-Fault isolation 
-Domain isolation  
-
-
-Implies loose coupling between service endpoints 
-API oriented 
-Patterns provide meaningful idioms to connect loosely coupled services 
-
-
-Not Cloud Native
-Legacy tooling does not exploit platform capabilities 
-Dependence on other tools to scale to demand
-Dependence on other tools to scale to zero 
-No built in notion of location transparency for components that live outside of a runtime 
-Appliances (message broker or esb) that decouple service endpoints are not cloud native
-Capabilities largely dependent on underlying platform
-
-
-  
- 
-
-
+* Not Cloud Native
+** Legacy tooling does not exploit platform capabilities 
+** Dependence on other tools to scale to demand
+** Dependence on other tools to scale to zero 
+** No built in notion of location transparency for components that live outside of a runtime 
+** Appliances (message broker or esb) that decouple service endpoints are not cloud native
+** Capabilities largely dependent on underlying platform
