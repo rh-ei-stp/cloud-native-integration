@@ -1,5 +1,5 @@
 # What is “Cloud Native”? 
-*An Enterprise Integration Practice perspective* 
+*An Enterprise Integration Practice Perspective* 
 
 
 ## Common Definitions
@@ -12,8 +12,6 @@ Businesses use four different methods to deploy cloud resources. There is a publ
 https://azure.microsoft.com/en-us/overview/what-is-the-cloud/
 
 **IBM**
-
-Cloud computing overview
 
 Cloud computing, often referred to as simply “the cloud,” is the delivery of on-demand computing resources — everything from applications to data centers — over the internet on a pay-for-use basis.
 
@@ -67,6 +65,12 @@ The flexibility of each microservice adds to the agility and continuous improvem
 **10 KEY ATTRIBUTES OF CLOUD-NATIVE APPLICATIONS**
 “Cloud native is a term used to describe container-based environments. Cloud-native technologies are used to develop applications built with services packaged in containers, deployed as microservices and managed on elastic infrastructure through agile DevOps processes and continuous delivery workflows.”
 https://thenewstack.io/10-key-attributes-of-cloud-native-applications/
+
+## Cloud Characateristics 
+
+Characteristic | Originator | Analysis 
+-------------- | ---------- | --------
+
 
 ## Cloud Native Characteristics
 
