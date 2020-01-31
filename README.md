@@ -5,7 +5,30 @@
 ## Common Definitions
 
 ### CLOUD
-*content coming*
+**M$**
+The definition for the cloud can seem murky, but essentially, it’s a term used to describe a global network of servers, each with a unique function. The cloud is not a physical entity, but instead is a vast network of remote servers around the globe which are hooked together and meant to operate as a single ecosystem. These servers are designed to either store and manage data, run applications, or deliver content or a service such as streaming videos, web mail, office productivity software, or social media. Instead of accessing files and data from a local or personal computer, you are accessing them online from any Internet-capable device—the information will be available anywhere you go and anytime you need it.
+
+Businesses use four different methods to deploy cloud resources. There is a public cloud that shares resources and offers services to the public over the Internet, a private cloud that isn’t shared and offers services over a private internal network typically hosted on-premises, a hybrid cloud that shares services between public and private clouds depending on their purpose, and a community cloud that shares resources only between organizations, such as with government institutions.
+https://azure.microsoft.com/en-us/overview/what-is-the-cloud/
+
+**IBM**
+
+Cloud computing overview
+
+Cloud computing, often referred to as simply “the cloud,” is the delivery of on-demand computing resources — everything from applications to data centers — over the internet on a pay-for-use basis.
+
+    Elastic resources: Scale up or down quickly and easily to meet changing demand.
+    Metered services: Pay only for what you use.
+    Self-service: Find all the IT resources you need, with self-service access.
+https://www.ibm.com/cloud/learn/cloud-computing
+
+**RedHat**
+Clouds are IT environments that abstract, pool, and share scalable resources across a network. Clouds are usually created to enable cloud computing, which is the act of running workloads within that system. Neither clouds nor cloud computing are technologies unto themselves.
+
+    Clouds are environments—places where applications run.
+    Cloud computing is an act—the function of running a workload in a cloud.
+    Technologies are things—software and hardware used to build and use clouds.
+
 
 
 ### CLOUD NATIVE
