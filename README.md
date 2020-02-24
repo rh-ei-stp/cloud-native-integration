@@ -1,11 +1,17 @@
 # What is “Cloud Native”? 
 *An Enterprise Integration Practice Perspective* 
 
+The terms "Cloud" and "Cloud Native" have become two pivotal terms in the software industry implying significant change and a flurry of new techniques aimed at providing ever increasing efficiency, and efficacy 
+for modern compute platforms. These terms; however, are not often well defined and it is often unclear what the implications of the use of a new "cloud" or "cloud native" model might imply for applications and architecture delivered to this platform. 
+
+More specifically, as enterprises attempt to solve common problems solved by integration technologies and middleware at large, what if any difference is implied by this technique is often left up to implementers who may or may not be leveraging this new found compute platform for its efficiency, stability, and reliability gains. 
 
 ## Common Definitions
 
+Let's look at some common definitions of these terms. 
+
 ### CLOUD
-**M$**
+**Microsoft**
 The definition for the cloud can seem murky, but essentially, it’s a term used to describe a global network of servers, each with a unique function. The cloud is not a physical entity, but instead is a vast network of remote servers around the globe which are hooked together and meant to operate as a single ecosystem. These servers are designed to either store and manage data, run applications, or deliver content or a service such as streaming videos, web mail, office productivity software, or social media. Instead of accessing files and data from a local or personal computer, you are accessing them online from any Internet-capable device—the information will be available anywhere you go and anytime you need it.
 
 Businesses use four different methods to deploy cloud resources. There is a public cloud that shares resources and offers services to the public over the Internet, a private cloud that isn’t shared and offers services over a private internal network typically hosted on-premises, a hybrid cloud that shares services between public and private clouds depending on their purpose, and a community cloud that shares resources only between organizations, such as with government institutions.
@@ -70,6 +76,12 @@ https://thenewstack.io/10-key-attributes-of-cloud-native-applications/
 
 Characteristic | Originator | Analysis 
 -------------- | ---------- | --------
+global network of servers as a single ecosystem| M$ | N/A
+delivery of on-demand computing resources | IBM | N/A
+Elastic resources | IBM | N/A
+Self Service | IBM | N/A
+IT environments that abstract, pool, and share scalable resources across a network | Red Hat | N/A
+Not a Technology Unto Itself | Red Hat | N/A
 
 
 ## Cloud Native Characteristics
@@ -96,6 +108,8 @@ Mesh network for message routing | Red Hat | N/A
 Elastic Infrastructure | [New Stack Article](https://thenewstack.io/10-key-attributes-of-cloud-native-applications/)|N/A
 
 ## What is Cloud Native Integration?
+
+Given a definition of cloud and cloud native, and given that we can distill a set of traits that seem to follow for these definitions, does this imply a changing view for traditional enterprise integration techniques? 
 
 ### Tenets of Enterprise Integration
 
