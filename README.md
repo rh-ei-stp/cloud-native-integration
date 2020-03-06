@@ -14,7 +14,7 @@ Let's look at some common definitions of these terms.
 
 ### CLOUD
 
-####Cloud Definitions 
+#### Cloud Definitions 
 Some industry leading organizations define the term "cloud" in the following ways: 
 
 **Microsoft**
@@ -55,7 +55,7 @@ Not a Technology Unto Itself | Red Hat | Worth noting, but, not a meaningful eno
 #### Digesting the term "Cloud" 
 
 Given the set of definitions from around the industry, and some of the characteristics that we've distilled from these industry definitions. It seems apropos to assert that a cloud should be
-```javascript
+```java
 A network of servers that live in different geo's and are connected by an overlay network. This collection of compute should have a common API from which to provision, scale, and communicate with resources across a common network overlay. 
 
 This definition would then imply anything from an industry leader such as AWS, Azure, or GCP would likely meet the definition of a cloud; however, so could a multi-datacenter set of compute as long as it presented an API from which to provision, scale, and communicate across network resources. 
@@ -64,7 +64,7 @@ This definition would then imply anything from an industry leader such as AWS, A
 ### CLOUD NATIVE
 
 
-####Cloud Native Definitions 
+#### Cloud Native Definitions 
 Here is a sample of some definitions used by leaders across the software industry: 
 
 **CNCF**
@@ -80,12 +80,13 @@ These techniques enable loosely coupled systems that are resilient, manageable, 
 
 **Microsoft** 
 
-Could not find a narrative “definition”; however, Microsoft indicates cloud native is identified by the 5 pillars depicted in this schematic. 
+Microsoft indicates cloud native is identified by the 5 pillars depicted in this schematic. 
 ![Microsfot's 5 Pillars](https://docs.microsoft.com/en-us/dotnet/architecture/cloud-native/media/cloud-native-foundational-pillars.png)
  https://docs.microsoft.com/en-us/dotnet/architecture/cloud-native/definition
  
 **VMWare** 
-*Closest I could find to a definition*: “Cloud native technologies provide resiliency and auto-scaling through the use of microservices – modular applications that can be deployed, updated, scaled, and restarted without impact to the system or end users. Enterprises and service providers can deliver superior customer experiences 24x7.” https://www.vmware.com/solutions/cloud-native-apps.html
+
+*Closest to a definition*: “Cloud native technologies provide resiliency and auto-scaling through the use of microservices – modular applications that can be deployed, updated, scaled, and restarted without impact to the system or end users. Enterprises and service providers can deliver superior customer experiences 24x7.” https://www.vmware.com/solutions/cloud-native-apps.html
 
 **IBM**
 
@@ -96,9 +97,11 @@ Microservices work together as a whole to comprise an application, yet each can 
 The flexibility of each microservice adds to the agility and continuous improvement of cloud-native applications.” https://www.ibm.com/cloud/learn/cloud-native#toc-what-is-cl-OOTvI6Ql
 
 **Red Hat** 
+
 “Ideally,a cloud-native app is a collection of small, independent, and loosely coupled microservices, deployed in Linux containers, and connected through application programming interfaces (APIs) or a mesh network for message routing. Each service implements a business capability, and is developed by small teams using DevOps workflows like continuous integration and continuous deployment (CI/CD).” https://www.redhat.com/en/topics/cloud-native-apps/why-choose-red-hat-cloud-native 
 
 **10 KEY ATTRIBUTES OF CLOUD-NATIVE APPLICATIONS**
+
 “Cloud native is a term used to describe container-based environments. Cloud-native technologies are used to develop applications built with services packaged in containers, deployed as microservices and managed on elastic infrastructure through agile DevOps processes and continuous delivery workflows.”
 https://thenewstack.io/10-key-attributes-of-cloud-native-applications/
 
@@ -108,8 +111,8 @@ https://thenewstack.io/10-key-attributes-of-cloud-native-applications/
 
 Characteristic | Originator | Analysis
 -------------- | ---------- | --------
-Elasticity | David Gordon [Gordo](https://www.redhat.com/en/about/videos/considerations-for-migrating-cloud-native-architectures) | As the underlying platform features resource elasticity, this characteristic seems key
-On Demand Scaling | David Gordon [Gordo](https://www.redhat.com/en/about/videos/considerations-for-migrating-cloud-native-architectures) | As this is a feature of an underlying platform, it would seem workloads must approximate notions of on-demand scaling as well 
+Elasticity | Red Hat (https://www.redhat.com/en/about/videos/considerations-for-migrating-cloud-native-architectures) | As the underlying platform features resource elasticity, this characteristic seems key
+On Demand Scaling | Red Hat (https://www.redhat.com/en/about/videos/considerations-for-migrating-cloud-native-architectures) | As this is a feature of an underlying platform, it would seem workloads must approximate notions of on-demand scaling as well 
 Loosely coupled | CNCF | As workloads deploy to elastic, API driven clouds that are connected by network overlays, this characteristic seems apropos to achieve other objectives such as HA, etc., but does not seem a prioiri 
 Resilient | CNCF | Given an ephemeral notion of compute provided by a cloud, it seems critical that workload deployments be resilient 
 Manageable | CNCF | This seems acceptable as a characteristic of software in general, and likely required to exploit underlying cloud characteristics 
@@ -140,11 +143,9 @@ On Demand Scaling | As this is a core characteristic of underlying cloud platfor
 Resilient | High Availability should be a core concern of any technology or deployment. This implies both meainingful availability in calm and turbulent waters (i.e. outage of an availability zone, data center, etc.).  
 Manageable, Observable | As the nature of a cloud platform provides some control plane (likely API based) to provision, manage and observe infrastructure deployments from the platform, these seems like core characteristics of any technology or deployment that is meant to be native to that platform 
 Location agnostic | To be able to be effective in a cloud environment, it is critical that the underlying details of said cloud be abstracted away from technologies and deployments. This loose coupling of technology to platform implies an abstraction that allows the technology to be native to cloud as an architectural concept as opposed to a product. For instance, if something only works in a single compute deployment due to tight coupling to a proprietary platform it would only be useful to declare something native to that cloud
-Communicate via "API" | We use "API" here loosely, as we define loosely define this term to include events, event streams, as well as more standard API taxonomy such as REST, SOAP, etc.
+Communicates via an "API" | We use "API" here loosely, as we define loosely define this term to include events, event streams, as well as more standard API taxonomy such as REST, SOAP, etc.
 
-Here we reduce the need to define architectural technique or process into a core set of characteristics that allows a deployment or technology to be labeled "cloud native". 
-
-Given this set of characteristics,  
+Now that we have established a core set of characteristics, it worthwhile to take a peak at our current set of architectural prescriptions, products, and rules of thumb to determine if this implies a greater enterprise software impact (and more specifically how we integrate our enterprise) to applications and workloads that we run on the "cloud" in a "cloud native" way.  
 
 ## What is Cloud Native Integration?
 
