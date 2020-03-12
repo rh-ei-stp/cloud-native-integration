@@ -143,22 +143,45 @@ On Demand Scaling | As this is a core characteristic of underlying cloud platfor
 Resilient | High Availability should be a core concern of any technology or deployment. This implies both meainingful availability in calm and turbulent waters (i.e. outage of an availability zone, data center, etc.).  
 Manageable, Observable | As the nature of a cloud platform provides some control plane (likely API based) to provision, manage and observe infrastructure deployments from the platform, these seems like core characteristics of any technology or deployment that is meant to be native to that platform 
 Location agnostic | To be able to be effective in a cloud environment, it is critical that the underlying details of said cloud be abstracted away from technologies and deployments. This loose coupling of technology to platform implies an abstraction that allows the technology to be native to cloud as an architectural concept as opposed to a product. For instance, if something only works in a single compute deployment due to tight coupling to a proprietary platform it would only be useful to declare something native to that cloud
-Communicates via an "API" | We use "API" here loosely, as we define loosely define this term to include events, event streams, as well as more standard API taxonomy such as REST, SOAP, etc.
+Communicates via an "API" | We use "API" here loosely, as we loosely define this term to include events, event streams, as well as more standard API taxonomy such as REST, SOAP, etc.
 
 Now that we have established a core set of characteristics, it worthwhile to take a peak at our current set of architectural prescriptions, products, and rules of thumb to determine if this implies a greater enterprise software impact (and more specifically how we integrate our enterprise) to applications and workloads that we run on the "cloud" in a "cloud native" way.  
 
+#### What about MicroService Architecture? Not Enough To be "Cloud Native"
+
+As we took a survey of definitions of "cloud native" from various vendors across the industry, this term and architectural technique sure seemed to pop up a good bit. 
+
+If we take a typical definition and description of microservices [Martin Fowler on Microservices](https://martinfowler.com/microservices/) , we find that this architectural technique lends itself well to the characteristics that we have identified as composing a "cloud native" deployment. For instance, proper microservice architecture techniques calls for single responsibility principles to be acknowledged featuring everything from independent deployment pipelines that lend themselves to notions of elasticity, resilience as the microservice can only depend on itself (and must act defensively as a result), and likely an API as consuming the microservice is not the responsibility of the microservice itself (i.e. something else should provide choreography for domain specific features). 
+
+As mentioned microservices lends themselves well to notions of elasticity, but does not offer this in and of itself nor does it per se offer notions of location agnosticism, nor do they come with elasticity mechanics in and of themselves. As a result, simply establishing a bounded context as a means to determine decomposition barriers, and deploying the microservice, is not enough to meet the definition of "Cloud Native". 
+
+As a result, any microservice architecture that hopes to achieve a label of "Cloud Native" must be accompanied by underlying platforms (both middleware platforms, all the way down to the underlying cloud platform that they are running on) must be bundled with or complemented by other platform tooling that enables notions of elasticity, on demand scaling, manageability and observability, location agnosticism, and api based communications apparatus. 
+
+This has some likely implications for microservice deployment which we'll discuss in subsequent sections. 
+
 ## What is Cloud Native Integration?
 
-Given a definition of cloud and cloud native, and given that we can distill a set of traits that seem to follow for these definitions, does this imply a changing view for traditional enterprise integration techniques? 
+Given a definition of cloud and cloud native, and given that we can distill a set of traits that seem to flow from these definitions, does this imply a changing view for traditional enterprise integration techniques? 
+
+While many of our traditional enterprise integration products might display some but do not meet the entire set of characteristics we define as "Cloud Native" (for instance, while an ESB likely does not promise us elasticity out of the box, it does promise us notions of location transparency (location agnostic), and likely communicates along the bus over an "API" given our loose definition of what an API is), our traditional enterprise integration patterns and idioms do apply. 
+
+For instance, as we communicate over API's, traditional enterprise integration patterns such as enrichment and service mediation become front and center requirements as we orchestrate our feature needs across the enterprise. As we adopt architectural techniques such as decomposition into microservices that are cloud native, enterprise integration patterns become even more critical as on demand scaling, location agnostic deployment, communication via an API all imply a need for enterprise integration techniques to help orchestrate, and provide choreography for these types of deployments. 
+
+As a result, given that we have an even greater need for integration now that we have adopted "Cloud Native" characteristics for our deployments, it seems neccessarry to introduce this integration tier as a "Cloud Native" deployment itself. 
 
 ### Tenets of Enterprise Integration
 
-* Service Oriented Architecture  
-* MicroService Architecture 
-* Usage of Enterprise Integration Patterns: [EIP](https://en.wikipedia.org/wiki/Enterprise_Integration_Patterns)
+When discussing what it is we mean by "Enterprise Integration" it may be worthwhile to elaborate some of the underlying fundamentals of this discussion. 
+
+* **Service Oriented Architecture** - Enterprise Integration really began to take hold in enterprises during the rise of Service Oriented Architecture (SOA). While describing the entirety of Service Oriented Architecture is beyond the scope of this document, it is worth noting that SOA began to propose notions of single responsibility, communication over an API, and an event based nature to deployment via message brokers and enterprise service bus capabilities. This architectural reference put enterprise integration patterns front and center in how it addressed activities across the enterprise. 
+* **MicroService Architecture** - Earlier in this document we took a look at descriptions and definitions of MicroService architecture (MSA). MicroService Architecture; however, implies modernization of many of the same principles we had adopted in Service Oriented Architecture, and began to identify tooling, technique (CICD for instance), and architectural views (decomposition via a bounded context for instance) that lended themselves more neatly to further decomposition into meaningful units that imply single responsibility (and other twelve factor techniques). As a result, MicroService Architecture began to notice adoption across all modern enterprise integration tooling and techniques and moves away from monolithic deployments into large appliances (such as ESB's) began to be less favoured as much smaller deployments leveraging the same architectural techniques that were seen in traditional enteprise integration tooling (for instance, our microservices will still event driven and may have still used an API, message broker, or other appliance that was typical of traditional enterprise integration deployments). 
+* **Enterprise Integration Patterns** - [EIP](https://en.wikipedia.org/wiki/Enterprise_Integration_Patterns). While fully elaborating "Enterprise Integration Patterns" is beyond the scope of this document, it is worth noting that these patterns are core to what we describe as "Enterprise Integration" or an "Integration Tier" across our enterprise. 
+
+These techniques act as a means of enterprise orchestration to enable the many disparate things we have deployed into our enterprise; however, do not themselves address notions of "Cloud Native" deployment and how we can more properly leverage our cloud platforms to enable the enterprise to get the full value out of cloud deployments. 
 
 ### Are Current Enterprise Integration Practices “Cloud Native”?
-* Cloud Native Characteristics 
+
+As discussed previously in this document, enterprise integration patterns and traditional integration architectural viewpoints (such as SOA or MSA) are largely complementary to cloud native deployments. In fact these appliances, and architectural techniques display the following set of characteristics: 
   * Event and Complex event driven behaviour 
   * MicroService decomposition fits nicely into traditional SOA concepts 
   * Single Responsibility
@@ -168,11 +191,16 @@ Given a definition of cloud and cloud native, and given that we can distill a se
   * API oriented 
   * Patterns provide meaningful idioms to connect loosely coupled services 
 
-
-* Not Cloud Native
+While enterprise integration appliances and techniques find themselves to be complementary to cloud native deployments, these appliances and techniques don't get us all the way there in and of themselves: 
   * Legacy tooling does not exploit platform capabilities 
   * Dependence on other tools to scale to demand
   * Dependence on other tools to scale to zero 
   * No built in notion of location transparency for components that live outside of a runtime 
   * Appliances (message broker or esb) that decouple service endpoints are not cloud native
   * Capabilities largely dependent on underlying platform
+
+Without overemphasizing the need for enterprise integration techniques as a means to support cloud native deployments, it becomes clear that not only do these techniques (and as a result, their complementary appliances) still make sense in a cloud native world, but become neccessary for us to truly meet cloud native characteristics. 
+
+That being said, traditional tooling which has often been monolithic, dependent on location configuration, and totally unable to respect notions of elasticity without other tooling or significant architectural tinkering to meet needs for deployment (much less on-demand scaling), such as an enterprise service bus, must transition itself into different approaches from both a tooling and architectural perspective to be truly viewed as cloud native. 
+
+  
