@@ -18,6 +18,7 @@ Let's look at some common definitions of these terms.
 Some industry leading organizations define the term "cloud" in the following ways: 
 
 **Microsoft**
+
 The definition for the cloud can seem murky, but essentially, it’s a term used to describe a global network of servers, each with a unique function. The cloud is not a physical entity, but instead is a vast network of remote servers around the globe which are hooked together and meant to operate as a single ecosystem. These servers are designed to either store and manage data, run applications, or deliver content or a service such as streaming videos, web mail, office productivity software, or social media. Instead of accessing files and data from a local or personal computer, you are accessing them online from any Internet-capable device—the information will be available anywhere you go and anytime you need it.
 
 Businesses use four different methods to deploy cloud resources. There is a public cloud that shares resources and offers services to the public over the Internet, a private cloud that isn’t shared and offers services over a private internal network typically hosted on-premises, a hybrid cloud that shares services between public and private clouds depending on their purpose, and a community cloud that shares resources only between organizations, such as with government institutions.
@@ -33,6 +34,7 @@ Cloud computing, often referred to as simply “the cloud,” is the delivery of
 https://www.ibm.com/cloud/learn/cloud-computing
 
 **RedHat**
+
 Clouds are IT environments that abstract, pool, and share scalable resources across a network. Clouds are usually created to enable cloud computing, which is the act of running workloads within that system. Neither clouds nor cloud computing are technologies unto themselves.
 
     Clouds are environments—places where applications run.
@@ -52,7 +54,7 @@ Self Service | IBM | This implies again an API like contract.
 IT environments that abstract, pool, and share scalable resources across a network | Red Hat | This characteristic implies a central contorl plane, and central network overlay
 Not a Technology Unto Itself | Red Hat | Worth noting, but, not a meaningful enough characteristic to consider 
 
-#### Digesting the term "Cloud" 
+#### Arriving at a definition of "Cloud" 
 
 Given the set of definitions from around the industry, and some of the characteristics that we've distilled from these industry definitions. It seems apropos to assert that a cloud should be
 ```java
@@ -109,6 +111,8 @@ https://thenewstack.io/10-key-attributes-of-cloud-native-applications/
 
 #### Cloud Native Characteristics
 
+As we parse through various "Cloud Native" definitions from across the industry, let's take a look at some of the various "cloud native" characteristics suggested by those definitions. 
+
 Characteristic | Originator | Analysis
 -------------- | ---------- | --------
 Elasticity | Red Hat (https://www.redhat.com/en/about/videos/considerations-for-migrating-cloud-native-architectures) | As the underlying platform features resource elasticity, this characteristic seems key
@@ -130,7 +134,7 @@ Communicate via API | Red Hat | This implies a request/response pattern must be 
 Mesh network for message routing | Red Hat | While this seems apropos, and might ensure messaging appliance viability in a cloud deployment, the absence of this should not preclude deployments being labeled "cloud native"  
 Elastic Infrastructure | [New Stack Article](https://thenewstack.io/10-key-attributes-of-cloud-native-applications/)| While being capable of exploiting underlying platform capabilities categorically is required of cloud native deployments, this characteristic seems more descriptive of the underlying platform than deployments that sit on top of it 
 
-#### Digesting "Cloud Native" Definitions and Characteristics 
+#### Arriving at a definition of "Cloud Native" and supporting Characteristics 
 
 While many industry leaders define the term "cloud native", many of these definitions depend on product tooling or architectural concerns that the company advocates as opposed to defining the term more generally without speaking directly to product or architectural technique. It is the opinion of the Enterprise Integration Practice, that (for instance, in the case of the use of microservices) some of these products and techniques are adequate architectural techniques, and are "cloud native" in an of themselves, but are not required to label a deployment "cloud native" (to reiterate, the use of microservices may imply a "cloud native" deployment, but the absence of microservices does not imply that a deployment is not "cloud native" per se). 
 
@@ -147,13 +151,15 @@ Communicates via an "API" | We use "API" here loosely, as we loosely define this
 
 Now that we have established a core set of characteristics, it worthwhile to take a peak at our current set of architectural prescriptions, products, and rules of thumb to determine if this implies a greater enterprise software impact (and more specifically how we integrate our enterprise) to applications and workloads that we run on the "cloud" in a "cloud native" way.  
 
-#### What about MicroService Architecture? Not Enough To be "Cloud Native"
+#### Is MicroService Architecture "Cloud Native"? Not Enough To be "Cloud Native"
 
-As we took a survey of definitions of "cloud native" from various vendors across the industry, this term and architectural technique sure seemed to pop up a good bit. 
+One common characteristic that frequently shows up as we survey definitions of "cloud native" from various vendors across the industry is the architectural technique "Microservices". As we survey the industry, many definitions imply that an application deployment must honour a Microservice architectural style to be considered a "cloud native" deployment. 
 
-If we take a typical definition and description of microservices [Martin Fowler on Microservices](https://martinfowler.com/microservices/) , we find that this architectural technique lends itself well to the characteristics that we have identified as composing a "cloud native" deployment. For instance, proper microservice architecture techniques calls for single responsibility principles to be acknowledged featuring everything from independent deployment pipelines that lend themselves to notions of elasticity, resilience as the microservice can only depend on itself (and must act defensively as a result), and likely an API as consuming the microservice is not the responsibility of the microservice itself (i.e. something else should provide choreography for domain specific features). 
+This assertion isn't coincidental, if we take a typical definition and description of microservices [Martin Fowler on Microservices](https://martinfowler.com/microservices/), we find that this architectural technique lends itself well to the characteristics that we have identified as composing a "cloud native" deployment. For instance, proper microservice architecture techniques calls for single responsibility principles to be acknowledged featuring everything from independent deployment pipelines that lend themselves to notions of elasticity, resilience as the microservice can only depend on itself (and must act defensively as a result), and likely an API as consuming the microservice is not the responsibility of the microservice itself (i.e. something else should provide choreography for domain specific features). 
 
-As mentioned microservices lends themselves well to notions of elasticity, but does not offer this in and of itself nor does it per se offer notions of location agnosticism, nor do they come with elasticity mechanics in and of themselves. As a result, simply establishing a bounded context as a means to determine decomposition barriers, and deploying the microservice, is not enough to meet the definition of "Cloud Native". 
+As mentioned microservices lend themselves well to notions of elasticity, and other "cloud native" characteristics and as a result it is tempting to label them "cloud native" and even go so far as to suggest that "cloud native" deployments should respect this architectural view. However; microservices, in and of themselves, are lacking in certain characteristics that are critical to notions of being "cloud native". Initially, it is worth noting that for things like elasticity, being location agnostic, etc., microservice architecture does not offer these characteristics in and of itself nor does it per se offer notions of on demand-scaling or resilience mechanics in and of themselves. Microservice architecture must rely on completementary tooling, or platforms to accomplish these characteristics. If we were to simply decompose a feature into a small unit of deployment and deploy to a traditional subsystem, our microservice in this case would be extremely lacking of "cloud native" features, as it would lack elasticity, location transparency, and notions of high availability. 
+
+As a result, simply establishing a bounded context as a means to determine decomposition barriers, and deploying the microservice, is not enough to meet the definition of "Cloud Native", as these missing characeristics are core to our notions of what is and isn't *"Cloud Native"*.  
 
 As a result, any microservice architecture that hopes to achieve a label of "Cloud Native" must be accompanied by underlying platforms (both middleware platforms, all the way down to the underlying cloud platform that they are running on) must be bundled with or complemented by other platform tooling that enables notions of elasticity, on demand scaling, manageability and observability, location agnosticism, and api based communications apparatus. 
 
