@@ -11,11 +11,11 @@ The purpose of this document is to come to a common understanding of what these 
 In the end, we'll find that to meet our integration needs in our brave new cloud world, we need a new architectural view **Cloud Native Integration** 
 
 ## Defining Terms
-Here we define the "Cloud" ![What is the Cloud](definition-cloud.md)
+Here we define the "Cloud" [What is the Cloud](definition-cloud.md)
 Here we define the term "Cloud Native" [What is Cloud Native](definition-cloudnative.md)
 
 ### Is MicroService Architecture *Cloud Native*?
-Great question. In short, almost. Here we discuss why: ![Is MSA Cloud Native](msa-cloudnative.md)
+Great question. In short, almost. Here we discuss why: [Is MSA Cloud Native](msa-cloudnative.md)
 
 ## **Cloud Native Integration**  
 As we define the *cloud* and *cloud native*, it becomes clear that integration between these myriad components requires integration. In fact, as workloads appear in different clouds, clusters, and transition between legacy approaches to *cloud native* approaches, integration becomes a front and center feature of our enterprise architecture. 
