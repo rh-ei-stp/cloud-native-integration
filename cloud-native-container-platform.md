@@ -1,0 +1,38 @@
+#### The Need for a Container Platform 
+As one of our core *"cloud native"* characteristics is that our deployments are location agnostic, we cannot depend alone on a cloud provider API for our runtime as these API's are specific to the location they are provisioned in. For instance, while provisioning AmazonMQ allows cloud message brokers to communicate with brokers outside of AWS, our deployment automation is uniquely tied to AWS' API, and cannot live outside of this cloud without further abstraction. This tightly couples our cloud deployments to AWS, and inevitably is only native to AWS, as when we move this deployment to another cloud or data center, we will not be able to provision using the AWS api. 
+
+As a result, for a deployment to be native to the cloud as an architectural construct as opposed to product, our platform runtime needs to abstract away the details of a particular cloud or data center. As discussed in another section, container platforms provide the neccessarry means to exploit the cloud characteristics of an underlying cloud platform. 
+
+As we assert viable runtimes for cloud native deployment and ultimately an integration tier that is cloud native, it is, then, reasonable to assume that our integration tier components should be capable of exploting a container platform. Container platforms bring *cloud native* features and constructs to us right out of the box: 
+* Container platforms may be *elastic*, i.e. containers may be scaled up and down 
+* Container platforms support *on demand scaling* as they provide an API through which to accomplish this notion of elasticity 
+* Container platforms provide *resilient* features such as the ability to provision replica sets, stateful sets, daemon sets, and the Kubernetes job scheduler performs a feature rich means of accomplishing this 
+* While container platforms do come with *manageability* out of the box via the event driven nature of the Kubernetes API and its list of first class resources such as the Pod and means to provision a Pod via an API, these constructs are primitive for middleware deployment. It is also worth noting that individual container platform distributions come with observability as a core feature; however, container platforms in and of themsevles require some wiring up to achieve this goal 
+* Container platforms are *location agnostic* as they only seek to exploit the underlying nodes which may be anywhere (as long as they are Linux) 
+* Container platforms are *event driven* by nature as they present RESTful API's to provision and manage container platforms. As events are produced via these set of API's, the container platform provisions, removes, etc. based on the API contract 
+* As container platforms present a RESTful set of API's for management purposes, they *create a contract* through which our deployments may depend on predictable behaviour
+
+Over the years many container platforms have arisen to handle these problems from Solaris Zones to Mesosphere's Mesos. While it beyond the scope of this document to decide which of these platforms are the most useful, through the CNCF, and the industry at large, Kubernetes has emerged as the defacto container platform choice. 
+
+As a result, throughout the course of this document, Kubernetes (and Kubernetes distributions such as Openshift) will be considered the container platform runtime that applications and infrastructure should leverage to adopt *cloud native* architecture. 
+
+#### Extending the Container Platform 
+While container platforms provide us a platform abstraction layer from location specific details (i.e. which cloud or data center we are in), they do not provide a rich enough set of mechanisms for our traditional legacy deployments to be considered *cloud native*. For instance, while a Kubernetes Pod may provide many cloud native characteristics in and of itself (resilience, manageabillity, etc.), the simple existence of it as a resource in a Kubernetes cluster does not afford us on-demand scaling, event driven characteristics, a contractual means of communication and may lack resilience, for instance, even leveraging a stateful set, Kubernetes cannot handle storage loss or failure of the pod, it will just keep failing to deploy. 
+
+As a result, a container platform provides a useful abstraction layer to consider ourselves *cloud native*, but it itself must be extended to provide an abstraction layer that can enable *cloud native* characteristics for deployments: 
+* On-Demand Scaling 
+* Resilience (high availability and means to recover from disaster) 
+* True manageability and observability- our deployments should extend past just simply deploying themselves, but, rather should becomes first class citizens in a rich ecosystem that enables *cloud native* characteristics. When deployed, they should simply just be scaled to demand or observed without significant subsequent deployment or configuration.  
+* Event driven - while the Pod is itself event driven, and is managed by the Kubernetes Job Scheduler, replication controllers and a rich ecosystem of management tooling, what is inside of it need not be event driven. In fact, in and of itself, any legacy static deployment could fit neatly into a pod (as long as it respects adequate health and aliveness checks).
+* API Centric - Kubernetes primitives are themselves API centric as they depend on interaction with the Kubernetes API; however, what is deployed inside of these primitives/pods need not be. While Kubernetes can promise high availability of this service via replication controllers and stateful sets, what is actually running need not interact with Kubernetes, or even provide any interaction at all (outside of providing basic health and availability checks)
+
+##### Customer Resource Definitions and the Operator SDK 
+It is beyond the scope of this document to describe custom resource definitions and the operator sdk in full detail; however, in a nutshell, Custom Resource Definitions in Kubernetes are a set of extensions to the Kubernetes API primitives, through which a management control plane interacts and abstracts underlying Kubernetes API interaction. Leveraging the Operator SDK (https://coreos.com/operators/)[Operators], Operators in Kubernetes offer a management control plane through which, based on the custom resources that are deployed to Kubernetes, operators provision, change, observe, and provide general caring and feeding for deployments. 
+
+Operators and Custom Resources provide applications a means to abstract away low level platform activities, such as the deployment of a pod, to provide rich interaction across the cluster. For instance, while provisioning a custom resource an Operator may provision pods with appropriate container images, place them in a stateful set for high availabillity purposes, provide them a database or message broker to interact with and provision a set of observability tools like Prometheus all while wiring up an application for use. This abstraction layer allows developers to simply develop a description of an application and how it should interact across the Kubernetes cluster.       
+
+##### Operator Maturity and *Cloud Native* Deployments 
+![Operator Maturity Model](images/operator-maturity-model.png)
+Despite how useful Operators and Custom Resource Definitions are, they require mature capabilities to be leveraged for *Cloud Native* deployments. 
+
+Looking at the Operator Lifecycle Maturity Model, we see that to properly gain the entirety of the benefits we hope to gain via *cloud native* deployments, we will want to gather mature capabilities from Operators and should focus on Integration technologies that employ Phase IV or higher maturity capabilities.  
