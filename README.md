@@ -1,7 +1,7 @@
 # What is “Cloud Native” Integration? 
 *A Red Hat Integration Solution Technology Practice Perspective* 
 
-The terms **"cloud"** and **"Cloud Native"** have become important in the software industry alluding, to significant change and a flurry of new techniques aimed at providing ever increasing efficiency, and efficacy for modern compute platforms. "Cloud Native", when used to describe software, implies architecture that capitalizes on the capabilities of "cloud" infrastructure, however, there is no clear consensus around which concrete architectural characteristics should be exhibited by Cloud Native deployments. Some of this ambiguity derives from inconsistent definitions of the term "cloud" itself, and the relevant context applied when cloud infrastructure is in use.
+The terms **"cloud"** and **"Cloud Native"** have become important in the software industry, alluding to significant change and a flurry of new techniques aimed at providing ever increasing efficiency, and efficacy for modern compute platforms. "Cloud Native", when used to describe software, implies architecture that capitalizes on the capabilities of "cloud" infrastructure, however, there is no clear consensus around which concrete architectural characteristics should be exhibited by Cloud Native deployments. Some of this ambiguity derives from inconsistent definitions of the term "cloud" itself, and the relevant context applied when cloud infrastructure is in use.
 
 More specifically, as enterprises attempt to solve common problems using integration technologies and middleware at large, implementation teams are often left to determine for themselves how best to leverage cloud infrastructure and Cloud Native architecture for efficiency, stability, and reliability gains.
 
