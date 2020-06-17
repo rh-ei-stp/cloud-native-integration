@@ -22,7 +22,7 @@ Microservice architecture is complementary to Cloud Native architecture, however
 
 
 ## **Cloud Native Integration**  
-Enterprise software traditionally requires integration capabilities, and a cloud context exposes additional integration use cases. An increasing number of organizations aim to deploy software to multiple clusters and clouds, clusters, and need to support workload migrations from traditional environments to cloud environments, **integration becomes a front and center feature** of a Cloud Native enterprise architecture. 
+Enterprise software traditionally requires integration capabilities, and a cloud context exposes additional integration use cases. An increasing number of organizations aim to deploy software to multiple clusters and clouds, and need to support workload migrations from traditional environments to cloud environments, **integration becomes a front and center feature** of a Cloud Native enterprise architecture. 
 
 Here we explain why a container platform is the *Cloud Native* run time of choice for **Cloud Native Integration**: [Integration and the Container Platform](cloud-native-container-platform.md)
 
