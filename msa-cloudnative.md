@@ -1,4 +1,4 @@
-#### Is MicroService Architecture "Cloud Native"? Not Enough To be "Cloud Native"
+#### Is Microservice Architecture "Cloud Native"? Not Enough To be "Cloud Native"
 
 One common characteristic that frequently shows up as we survey definitions of "cloud native" from various vendors across the industry is the architectural technique "Microservices". Many definitions imply that an application deployment must honour a Microservice architectural style to be considered a "cloud native" deployment. 
 
