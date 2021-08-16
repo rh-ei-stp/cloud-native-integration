@@ -19,7 +19,7 @@ Cloud computing, often referred to as simply “the cloud,” is the delivery of
     Self-service: Find all the IT resources you need, with self-service access.
 https://www.ibm.com/cloud/learn/cloud-computing
 
-**RedHat**
+**Red Hat**
 
 Clouds are IT environments that abstract, pool, and share scalable resources across a network. Clouds are usually created to enable cloud computing, which is the act of running workloads within that system. Neither clouds nor cloud computing are technologies unto themselves.
 
